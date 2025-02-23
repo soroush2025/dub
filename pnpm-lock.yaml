@@ -87,6 +87,9 @@ importers:
       '@prisma/client':
         specifier: 5.18.0
         version: 5.18.0(prisma@5.18.0)
+      '@prisma/driver-adapter-utils':
+        specifier: ^6.4.1
+        version: 6.4.1
       '@prisma/nextjs-monorepo-workaround-plugin':
         specifier: ^6.4.1
         version: 6.4.1
@@ -5916,10 +5919,20 @@ packages:
     resolution: {integrity: sha512-AUt44v3YJeggO2ZU5BkXI7M4hu9BF2zzH2iF2V5pyXT/lRTyWiElZ7It+bRH1EshoMRxHgpYg4VB6rCM+mG5jQ==}
     dev: false
 
+  /@prisma/debug@6.4.1:
+    resolution: {integrity: sha512-Q9xk6yjEGIThjSD8zZegxd5tBRNHYd13GOIG0nLsanbTXATiPXCLyvlYEfvbR2ft6dlRsziQXfQGxAgv7zcMUA==}
+    dev: false
+
   /@prisma/driver-adapter-utils@5.22.0:
     resolution: {integrity: sha512-Y8msGZl9unmVflXoqdxTejv99UD02Gp4VoIvkyw+YxNUIj7nRz35O7yf5D87qNmTiPMGCS1WjUucG9ZuNq8+tw==}
     dependencies:
       '@prisma/debug': 5.22.0
+    dev: false
+
+  /@prisma/driver-adapter-utils@6.4.1:
+    resolution: {integrity: sha512-WIVq6QUzz9HJXNa+6LmyLrW/KHOFQwmXYvpaVVECjwAUaAQXFw4g85i68GFPTYrfozwz5CntdHVVzXxInkk0fA==}
+    dependencies:
+      '@prisma/debug': 6.4.1
     dev: false
 
   /@prisma/engines-version@5.18.0-25.4c784e32044a8a016d99474bd02a3b6123742169:

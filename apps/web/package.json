@@ -33,6 +33,7 @@
     "@number-flow/react": "^0.4.4",
     "@planetscale/database": "^1.19.0",
     "@prisma/client": "5.18.0",
+    "@prisma/driver-adapter-utils": "^6.4.1",
     "@prisma/nextjs-monorepo-workaround-plugin": "^6.4.1",
     "@radix-ui/react-hover-card": "^1.1.6",
     "@react-pdf/renderer": "^4.2.2",
