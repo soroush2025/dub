@@ -21,12 +21,12 @@
   },
   "devDependencies": {
     "@dub/tailwind-config": "workspace:*",
-    "eslint": "^8.48.0",
-    "prettier": "^3.2.5",
-    "prettier-plugin-organize-imports": "^3.2.4",
-    "prettier-plugin-tailwindcss": "^0.6.0",
+    "eslint": "^9.21.0",
+    "prettier": "^3.5.2",
+    "prettier-plugin-organize-imports": "^4.1.0",
+    "prettier-plugin-tailwindcss": "^0.6.11",
     "tsconfig": "workspace:*",
-    "turbo": "^1.12.5"
+    "turbo": "^2.4.2"
   },
   "resolutions": {
     "@radix-ui/react-dialog": "1.0.5",

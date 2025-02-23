@@ -5,7 +5,7 @@
   "private": true,
   "license": "~~proprietary~~",
   "dependencies": {
-    "@stripe/ui-extension-sdk": "^8.8.1",
+    "@stripe/ui-extension-sdk": "^8.9.2",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "stripe": "^13.11.0"
@@ -27,7 +27,7 @@
   },
   "devDependencies": {
     "@stripe/ui-extension-tools": "^0.0.1",
-    "@types/react": "^19.0.2",
-    "@types/react-dom": "^19.0.2"
+    "@types/react": "^19.0.10",
+    "@types/react-dom": "^19.0.4"
   }
 }

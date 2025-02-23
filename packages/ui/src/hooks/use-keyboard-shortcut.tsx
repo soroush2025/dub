@@ -1,3 +1,6 @@
+
+
+
 import { stableSort } from "@dub/utils";
 import {
   Dispatch,
@@ -81,7 +84,7 @@ export function useKeyboardShortcut(
       // Sort the listeners by priority
       const topListener = stableSort(
         matchingListeners,
-        (a, b) => (b.priority ?? 0) - (a.priority ?? 0),
+        (a: { priority: any; }, b: { priority: any; }) => (b.priority ?? 0) - (a.priority ?? 0),
       )[0];
 
       // Check if this is the top listener

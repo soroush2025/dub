@@ -4,7 +4,7 @@ import { ALL_TOOLS, cn, createHref, fetcher } from "@dub/utils";
 import Image from "next/image";
 import Link from "next/link";
 import { useParams } from "next/navigation";
-import { useEffect, useState } from "react";
+import { AwaitedReactNode, JSXElementConstructor, Key, ReactElement, ReactNode, useEffect, useState } from "react";
 import useSWR from "swr";
 import { COMPARE_PAGES, FEATURES_LIST, LEGAL_PAGES } from "./content";
 import { Github, LinkedIn, ReferredVia, Twitter, YouTube } from "./icons";
@@ -57,7 +57,7 @@ const navigation = {
     name,
     href: `/legal/${slug}`,
   })),
-  tools: ALL_TOOLS.map(({ name, slug }) => ({
+  tools: ALL_TOOLS.map(({ name, slug }: { name: string; slug: string }) => ({
     name,
     href: `/tools/${slug}`,
   })),
@@ -208,7 +208,7 @@ export function Footer({
                       <a
                         href="https://security.dub.co"
                         target="_blank"
-                        rel="noreferrer"
+                        rel="noreferrer noopener"
                         className={cn(
                           linkListItemClassName,
                           "flex items-center gap-1",
@@ -224,7 +224,7 @@ export function Footer({
               <div className="mt-10 md:mt-0">
                 <h3 className={linkListHeaderClassName}>Tools</h3>
                 <ul role="list" className={linkListClassName}>
-                  {navigation.tools.map((item) => (
+                  {navigation.tools.map((item: { name: string; href: string }) => (
                     <li key={item.name}>
                       <Link
                         href={createHref(item.href, domain, {
@@ -279,9 +279,9 @@ function StatusBadge() {
     ongoing_incidents: {
       name: string;
       current_worst_impact:
-        | "degraded_performance"
-        | "partial_outage"
-        | "full_outage";
+      | "degraded_performance"
+      | "partial_outage"
+      | "full_outage";
     }[];
   }>("https://status.dub.co/api/v1/summary", fetcher);
 
