@@ -1,8 +1,8 @@
-# This is meant for local development only. Do not use this in production.
+# docker-compose.yml
 version: "3.8"
 
 services:
-  ps-mysql:
+  mysql:
     image: mysql:8.0
     restart: always
     environment:
@@ -15,9 +15,14 @@ services:
         "--default-authentication-plugin=mysql_native_password",
       ]
     ports:
-      - 3306:3306
+      - "3306:3306"
     volumes:
-      - ps-mysql:/var/lib/mysql
+      - mysql_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
 
   planetscale-proxy:
     image: ghcr.io/mattrobenolt/ps-http-sim:latest
@@ -26,20 +31,36 @@ services:
         "-mysql-no-pass",
         "-listen-port=3900",
         "-mysql-dbname=planetscale",
-        "-mysql-addr=ps-mysql",
+        "-mysql-addr=mysql",
       ]
     depends_on:
-      - ps-mysql
+      mysql:
+        condition: service_healthy
     ports:
-      - 3900:3900
-    links:
-      - ps-mysql
+      - "3900:3900"
+
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    command: redis-server --save 60 1 --loglevel warning
 
   mailhog:
-    image: "mailhog/mailhog:latest"
+    image: mailhog/mailhog:latest
     ports:
       - "1025:1025"
       - "8025:8025"
 
+  # Optional: Adminer for database management
+  adminer:
+    image: adminer:latest
+    ports:
+      - "8080:8080"
+    depends_on:
+      - mysql
+
 volumes:
-  ps-mysql:
+  mysql_data:
+  redis_data:
